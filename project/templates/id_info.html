@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block nav %}
+    <li>
+        <a href="../index">个人数据 <span class="sr-only">(current)</span></a>
+    </li>
+    <li class='active'>
+        <a href="../info">个人资料</a>
+    </li>
+{% endblock %}
+{% block body %}
+    <div class="row" style="margin-top:300">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                  <center>
+                    <img src="{% static '/media/imgs/1.png' %}" alt="..." class="img-circle">
+                  </center>
+                </div>
+                <div class="panel-body">
+                    <h1> 个人资料</h1>
+                    <table class="table table-default">
+                        <tr>
+                            <td>账号： {{ userinfo.name }}</td>
+                        </tr>
+                        <tr>
+                            <td>密码： {{ userinfo.pwd }}</td>
+                        </tr>
+                        <tr>
+                            <td>密钥： {{ userinfo.key }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+{% endblock %}

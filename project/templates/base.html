@@ -1,0 +1,135 @@
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>模板</title>
+        <link rel="stylesheet"
+              href="{% static 'plguins/bootstrap/css/bootstrap.min.css' %}"
+              type="text/css">
+        <script src="{% static 'js/jquery-3.6.0.min.js'%}"></script>
+        <script src="{% static 'plguins/bootstrap/js/bootstrap.min.js'%}"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button"
+                            class="navbar-toggle collapsed"
+                            data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1"
+                            aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    {% comment %} <a class="navbar-brand" href="{% url 'index' %}" data-toggle="modal" data-target="#myModal">首页</a> {% endcomment %}
+                    {% block Modal %}
+                        <a class="navbar-brand"
+                           href="#"
+                           data-toggle="modal"
+                           data-target="#myModal">首页</a>
+                        <div class="modal fade"
+                             tabindex="-1"
+                             id="myModal"
+                             role="dialog"
+                             aria-labelledby="myLargeModalLabel">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h4 class="modal-title" id="myModalLabel">消息提示</h4>
+                                    </div>
+                                    <div class="modal-body">回到首页会退出当前账号，确定吗？</div>
+                                    <div class="modal-footer">
+                                        <a href="#">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">不了</button>
+                                        </a>
+                                        <a href="{% url 'index' %}">
+                                            <button type="button" class="btn btn-primary">我确定</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endblock %}
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        {% block nav %}
+                            <li class='disabled'>
+                                <a href="#">个人数据 <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class='disabled'>
+                                <a href="#">个人资料</a>
+                            </li>
+                        {% endblock %}
+                        {% comment %} <li class="dropdown">
+                            <a href="#"
+                               class="dropdown-toggle"
+                               data-toggle="dropdown"
+                               role="button"
+                               aria-haspopup="true"
+                               aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">统计图表</a>
+                                </li>
+                                <li>
+                                    <a href="#">加密预览</a>
+                                </li>
+                                <li>
+                                    <a href="#">Something else here</a>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <a href="#">Separated link</a>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <a href="#">One more separated link</a>
+                                </li>
+                            </ul>
+                        </li> {% endcomment %}
+                    </ul>
+                    {% comment %} <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form> {% endcomment %}
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="{% url 'login' %}">登录</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'register' %}">注册</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    {% block body %}
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                            </div>
+                        </div>
+                    {% endblock %}
+                </div>
+                <!-- <img src="../media/10.jpg" alt=""> -->
+            </div>
+        </div>
+    </div>
+    {%  block script %}
+
+    {% endblock %}
+</body>
+</html>
